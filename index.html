@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>Ransomware Simulation</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <style>
+    body {
+      background-color: black;
+      color: red;
+      font-family: monospace;
+      margin: 0;
+      height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .container {
+      text-align: center;
+      padding: 20px;
+    }
+
+    h1 {
+      font-size: 60px;       /* lebih besar */
+      font-weight: bold;
+      color: white;
+      text-shadow: 0 0 15px red; /* shadow lebih jelas */
+      margin-bottom: 20px;
+    }
+
+    p {
+      font-size: 45px;       /* lebih proporsional */
+      margin-top: 20px;
+      color: lime;
+    }
+
+    input {
+      margin-top: 20px;
+      padding: 15px;
+      font-size: 50px;
+      text-align: center;
+      width: 80%;
+      max-width: 400px;
+      border-radius: 8px;
+      border: 2px solid red;
+      background: black;
+      color: white;
+    }
+
+    button {
+      margin-top: 15px;
+      padding: 15px 30px;
+      font-size: 42px;
+      background: red;
+      color: white;
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+      transition: 0.2s;
+    }
+
+    button:hover {
+      background: darkred;
+    }
+
+    #timer {
+      font-size: 45px;
+      margin-top: 30px;
+      color: red;
+      font-weight: bold;
+    }
+
+    @media (max-width: 500px) {
+      h1 { font-size: 40px; }
+      p, #timer { font-size: 32px; }
+      input { font-size: 28px; padding: 12px; }
+      button { font-size: 30px; padding: 12px 24px; }
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>⚠ Your Files Have Been BY ARGXY ⚠</h1>
+    <p>Haha Dasar Otak Bokep</p>
+
+    <!-- Form PIN -->
+    <div>
+      <input type="password" id="pin" placeholder="Enter PIN">
+      <button onclick="checkPin()">Unlock</button>
+    </div>
+
+    <!-- Timer -->
+    <div id="timer">Time left: 05:00</div>
+  </div>
+
+  <script>
+    let seconds = 300; // 5 menit
+
+    // countdown timer
+    setInterval(() => {
+      seconds--;
+      if(seconds < 0) seconds = 0;
+      let min = Math.floor(seconds / 60);
+      let sec = seconds % 60;
+      document.getElementById("timer").innerText =
+        `Time left: ${min}:${sec.toString().padStart(2,"0")}`;
+    }, 1000);
+
+    // geter otomatis tiap 5 detik
+    setInterval(() => {
+      if (navigator.vibrate) {
+        navigator.vibrate([200, 100, 200]);
+      }
+    }, 5000);
+
+    // cek PIN
+    function checkPin() {
+      let input = document.getElementById("pin").value;
+      let correctPin = "1234"; // PIN yang benar
+
+      if (input === correctPin) {
+        alert("✅ Unlocked! Data kamu aman (ini cuma simulasi)");
+      } else {
+        alert("❌ Wrong PIN!");
+        if (navigator.vibrate) {
+          navigator.vibrate([500, 200, 500]);
+        }
+      }
+    }
+  </script>
+</body>
+</html>
